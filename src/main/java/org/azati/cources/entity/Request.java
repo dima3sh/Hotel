@@ -1,14 +1,15 @@
 package org.azati.cources.entity;
 
 public class Request {
-    private static Integer idRequest = 0;
+    private Integer idRequest;
     private String text;
     private Boolean isReady;
-    private Employeer stuff;
+    private Employee stuff;
     private Thing thing;
 
-    public Request(String text, Boolean isReady, Employeer stuff, Thing thing){
-        idRequest++;
+    public Request(Integer idRequest, String text, Boolean isReady, Employee stuff, Thing thing) {
+        this.idRequest = idRequest;
+        this.text = text;
         this.isReady = isReady;
         this.stuff = stuff;
         this.thing = thing;
@@ -22,7 +23,7 @@ public class Request {
         isReady = ready;
     }
 
-    public void setStuff(Employeer stuff) {
+    public void setStuff(Employee stuff) {
         this.stuff = stuff;
     }
 
@@ -42,11 +43,22 @@ public class Request {
         return isReady;
     }
 
-    public Employeer getStuff() {
+    public Employee getStuff() {
         return stuff;
     }
 
     public Thing getThing() {
         return thing;
+    }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "number request=" + idRequest +
+                "text='" + text + '\'' +
+                ", isReady=" + isReady +
+                ", stuff=" + stuff +
+                ", thing=" + thing +
+                '}';
     }
 }
