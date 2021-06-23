@@ -1,9 +1,9 @@
 package org.azati.cources.entity;
 
 public class Person {
-    private String name;
-    private String phoneNumber;
-    private String emailAddress;
+    protected String name;
+    protected String phoneNumber;
+    protected String emailAddress;
 
     public Person(String name, String phoneNumber, String emailAddress) {
         this.name = name;
@@ -42,5 +42,20 @@ public class Person {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return name.equals(person.name) && phoneNumber.equals(person.phoneNumber) && emailAddress.equals(person.emailAddress);
+    }
+
+    @Override
+    public  int hashCode(){
+        int result = name.hashCode();
+        result = 31 * result + phoneNumber.hashCode();
+        result = 31 * result + emailAddress.hashCode();
+        return result;
     }
 }

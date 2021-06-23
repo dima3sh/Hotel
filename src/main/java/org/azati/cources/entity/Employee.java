@@ -1,55 +1,54 @@
 package org.azati.cources.entity;
 
-import org.azati.cources.enums.StateEquipment;
+import org.azati.cources.enums.EmployeeRoles;
 
-import java.time.LocalDateTime;
+public class Employee extends Person {
+    private Integer employee_id;
+    private EmployeeRoles employeeRoles;
 
-public class Employee extends Thing {
-    private  Integer employee_id;
-    private StateEquipment stateEquipment;
-    private Integer roomNumber;
-
-    public Employee(String name, Integer weight, Integer costPerObject, Integer employee_id,
-                    StateEquipment stateEquipment, Integer roomNumber) {
-        super(name, weight, costPerObject);
+    public Employee(String name, String phoneNumber, String emailAddress, Integer employee_id, EmployeeRoles employeeRoles) {
+        super(name, phoneNumber, emailAddress);
         this.employee_id = employee_id;
-        this.stateEquipment = stateEquipment;
-        this.roomNumber = roomNumber;
+        this.employeeRoles = employeeRoles;
     }
 
-    public  Integer getEmployee_id() {
+    public Integer getEmployee_id() {
         return employee_id;
-    }
-
-    public StateEquipment getStateEquipment() {
-        return stateEquipment;
-    }
-
-    public Integer getNumber() {
-        return roomNumber;
-    }
-
-    public void setStateEquipment(StateEquipment stateEquipment) {
-        this.stateEquipment = stateEquipment;
-    }
-
-    public void setNumber(Integer number) {
-        this.roomNumber = number;
     }
 
     public void setEmployee_id(Integer employee_id) {
         this.employee_id = employee_id;
     }
 
-    public void setRoomNumber(Integer roomNumber) {
-        this.roomNumber = roomNumber;
+    public EmployeeRoles getEmployeeRoles() {
+        return employeeRoles;
+    }
+
+    public void setEmployeeRoles(EmployeeRoles employeeRoles) {
+        this.employeeRoles = employeeRoles;
     }
 
     @Override
     public String toString() {
-        return "Equipment{" +
-                "stateEquipment=" + stateEquipment +
-                ", roomNumber=" + roomNumber +
+        return "Employee{" +
+                "employee_id=" + employee_id +
+                ", employeeRoles=" + employeeRoles +
                 "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return employee_id.equals(employee.employee_id) && employeeRoles.equals(employee.employeeRoles) && super.equals(o);
+    }
+
+    @Override
+    public  int hashCode() {
+        int result = Integer.hashCode(employee_id);
+        result = 31 * result + employeeRoles.hashCode();
+        result = 31 * result + super.hashCode();
+        return result;
     }
 }

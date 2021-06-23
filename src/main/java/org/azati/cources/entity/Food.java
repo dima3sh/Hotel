@@ -1,10 +1,10 @@
 package org.azati.cources.entity;
 
-public class Food extends Thing{
+public class Food extends Thing {
     private Integer dish_id;
     private Integer caloric;
 
-    public Food(String name, Integer weight, Integer costPerObject, Integer dish_id, Integer caloric) {
+    public Food(String name, Double weight, Integer costPerObject, Integer dish_id, Integer caloric) {
         super(name, weight, costPerObject);
         this.dish_id = dish_id;
         this.caloric = caloric;
@@ -32,5 +32,21 @@ public class Food extends Thing{
                 "dish_id=" + dish_id +
                 ", caloric=" + caloric +
                 "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Food)) return false;
+        Food food = (Food) o;
+        return dish_id.equals(food.dish_id) && caloric.equals(food.caloric) && super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Integer.hashCode(dish_id);
+        result = 31 * result + Integer.hashCode(caloric);
+        result = 31 * result + super.hashCode();
+        return result;
     }
 }

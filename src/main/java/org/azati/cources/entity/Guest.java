@@ -1,9 +1,8 @@
 package org.azati.cources.entity;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-public class Guest extends Person{
+public class Guest extends Person {
     private Integer room_id;
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
@@ -64,12 +63,18 @@ public class Guest extends Person{
         if (this == o) return true;
         if (!(o instanceof Guest)) return false;
         Guest guest = (Guest) o;
-        return Objects.equals(room_id, guest.room_id) && Objects.equals(departureTime, guest.departureTime)
-                && Objects.equals(arrivalTime, guest.arrivalTime) && Objects.equals(invoice, guest.invoice);
+        return room_id.equals(guest.room_id) && departureTime.equals(guest.departureTime)
+                && arrivalTime.equals(guest.arrivalTime) && invoice.equals(guest.invoice) && super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(room_id, departureTime, arrivalTime, invoice);
+        int result = Integer.hashCode(room_id);
+        result = 31 * result + arrivalTime.hashCode();
+        result = 31 * result + departureTime.hashCode();
+        result = 31 * result + Integer.hashCode(invoice);
+        result = 31 * result + super.hashCode();
+        return result;
     }
+
 }

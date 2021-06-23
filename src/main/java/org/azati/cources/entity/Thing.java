@@ -1,11 +1,13 @@
 package org.azati.cources.entity;
 
-public class Thing {
-    private String name;
-    private Integer weight;
-    private Integer costPerObject;
+import java.util.Objects;
 
-    public Thing(String name,Integer weight, Integer costPerObject) {
+public class Thing {
+    protected String name;
+    protected Double weight;
+    protected Integer costPerObject;
+
+    public Thing(String name, Double weight, Integer costPerObject) {
         this.name = name;
         this.weight = weight;
         this.costPerObject = costPerObject;
@@ -15,7 +17,7 @@ public class Thing {
         return name;
     }
 
-    public Integer getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
@@ -27,7 +29,7 @@ public class Thing {
         this.name = name;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
@@ -42,5 +44,21 @@ public class Thing {
                 ", weight=" + weight +
                 ", costPerObject=" + costPerObject +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Thing)) return false;
+        Thing thing = (Thing) o;
+        return name.equals(thing.name) && weight.equals(thing.weight) && costPerObject.equals(thing.costPerObject);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + weight.hashCode();
+        result = 31 * result + costPerObject.hashCode();
+        return result;
     }
 }

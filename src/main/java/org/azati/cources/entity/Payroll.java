@@ -23,6 +23,18 @@ public class Payroll {
         return bankAccount;
     }
 
+    public void setPayroll_id(Integer payroll_id) {
+        this.payroll_id = payroll_id;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
     @Override
     public String toString() {
         return "Payroll{" +
@@ -30,5 +42,21 @@ public class Payroll {
                 "salary=" + salary +
                 ", bankAccount='" + bankAccount + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Payroll)) return false;
+        Payroll payroll = (Payroll) o;
+        return payroll_id.equals(payroll.payroll_id) && salary.equals(payroll.salary) && bankAccount.equals(payroll.bankAccount);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Integer.hashCode(payroll_id);
+        result = 31 * result + Integer.hashCode(salary);
+        result = 31 * result + bankAccount.hashCode();
+        return result;
     }
 }
