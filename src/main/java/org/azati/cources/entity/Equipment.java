@@ -7,6 +7,8 @@ public class Equipment extends Thing {
     private StateEquipment stateEquipment;
     private Integer room_id;
 
+    public Equipment(){}
+
     public Equipment(String name, Double weight, Integer costPerObject,
                      Integer equipment_id, StateEquipment stateEquipment, Integer room_id) {
         super(name, weight, costPerObject);

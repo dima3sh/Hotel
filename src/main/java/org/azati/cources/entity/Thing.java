@@ -1,11 +1,11 @@
 package org.azati.cources.entity;
 
-import java.util.Objects;
-
 public class Thing {
     protected String name;
     protected Double weight;
     protected Integer costPerObject;
+
+    public Thing(){}
 
     public Thing(String name, Double weight, Integer costPerObject) {
         this.name = name;

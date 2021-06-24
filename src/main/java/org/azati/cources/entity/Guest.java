@@ -8,6 +8,8 @@ public class Guest extends Person {
     private LocalDateTime arrivalTime;
     private Integer invoice = 0;
 
+    public Guest(){}
+
     public Guest(String name, String phoneNumber, String emailAddress, Integer room_id,
                  LocalDateTime departureTime, LocalDateTime arrivalTime) {
         super(name, phoneNumber, emailAddress);

@@ -13,6 +13,8 @@ public class Room {
     private StatusRoom statusRoom;
     private List<Equipment> equipments;
 
+    public Room(){}
+
     public Room(Integer room_id, Boolean isFreeRoom, Integer numberOfBeds, Integer costPerHour,
                 StatusRoom statusRoom, List<Equipment> equipments) {
         this.room_id = room_id;

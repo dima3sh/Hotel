@@ -9,6 +9,8 @@ public class Request {
     private Employee stuff;
     private Thing thing;
 
+    public Request(){}
+
     public Request(Integer request_id, String text, Boolean isReady, Employee stuff, Thing thing) {
         this.request_id = request_id;
         this.text = text;

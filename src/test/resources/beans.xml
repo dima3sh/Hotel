@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id = "dish" class = "org.azati.cources.entity.Dish"></bean>
+    <bean id = "employee" class = "org.azati.cources.entity.Employee"></bean>
+    <bean id = "equipment" class = "org.azati.cources.entity.Equipment"></bean>
+    <bean id = "food" class = "org.azati.cources.entity.Food"></bean>
+    <bean id = "guest" class = "org.azati.cources.entity.Guest"></bean>
+    <bean id = "payroll" class = "org.azati.cources.entity.Payroll"></bean>
+    <bean id = "person" class = "org.azati.cources.entity.Person"></bean>
+    <bean id = "request" class = "org.azati.cources.entity.Request"></bean>
+    <bean id = "room" class = "org.azati.cources.entity.Room"></bean>
+    <bean id = "thing" class = "org.azati.cources.entity.Thing"></bean>
+
+</beans>

@@ -6,6 +6,8 @@ public class Employee extends Person {
     private Integer employee_id;
     private EmployeeRoles employeeRoles;
 
+    public Employee(){}
+
     public Employee(String name, String phoneNumber, String emailAddress, Integer employee_id, EmployeeRoles employeeRoles) {
         super(name, phoneNumber, emailAddress);
         this.employee_id = employee_id;
