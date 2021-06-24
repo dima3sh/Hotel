@@ -3,10 +3,17 @@ package org.azati.cources.services;
 import org.azati.cources.entity.Guest;
 import org.azati.cources.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 public class GuestService {
     @Autowired
     private GuestRepository guestRepository;
+
+    public GuestService(){}
+
+    public GuestService (GuestRepository guestRepository){
+        this.guestRepository = guestRepository;
+    }
 
     public Guest add(Guest guest) {
         return guestRepository.addGuest(guest);

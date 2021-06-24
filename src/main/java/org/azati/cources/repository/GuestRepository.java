@@ -29,13 +29,15 @@ public class GuestRepository {
 
     public Boolean removeByName(String name) {
         final boolean[] flag = {false};
+        ArrayList<Guest> g = new ArrayList<>(guestRepository);
 
-        guestRepository.forEach(guest -> {
+        g.forEach(guest -> {
             if (guest.getName().equals(name)) {
                 guestRepository.remove(guest);
                 flag[0] = true;
             }
         });
+
         return flag[0];
     }
 }

@@ -17,7 +17,7 @@ public class EquipmentTest {
 
     @Before
     public void init() {
-        ctx = new ClassPathXmlApplicationContext("beans.xml");
+        ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         equipment = ctx.getBean(Equipment.class);
         equipment.setStateEquipment(StateEquipment.NEW);
         ctx2 = new AnnotationConfigApplicationContext(AppConfig.class);
