@@ -35,4 +35,8 @@ public class RoomService {
     public Room edit(Room room, Integer index) {
         return roomRepository.editRoom(room, index);
     }
+
+    public Boolean upCostRoom(){
+        return roomRepository.upCostRoom();
+    }
 }

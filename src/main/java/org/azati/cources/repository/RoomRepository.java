@@ -7,38 +7,51 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomRepository {
-    private List<Room> guestRepository = new ArrayList<>();
+    private List<Room> roomRepository = new ArrayList<>();
 
     public Room addRoom(Room room) {
-        guestRepository.add(room);
+        roomRepository.add(room);
         return room;
     }
 
     public Boolean removeRoom(Room room) {
-        return guestRepository.remove(room);
+        return roomRepository.remove(room);
     }
 
     public Boolean removeRoom(Integer index) {
-        guestRepository.remove((int)index);
+        roomRepository.remove((int)index);
         return true;
     }
 
     public Room editRoom(Room room, Integer index) {
-        room = guestRepository.set(index, room);
+        room = roomRepository.set(index, room);
         return room;
     }
 
     public Boolean removeById(Integer room_id) {
         final boolean[] flag = {false};
-        ArrayList<Room> g = new ArrayList<>(guestRepository);
+        ArrayList<Room> g = new ArrayList<>(roomRepository);
 
         g.forEach(room -> {
             if (room.getRoom_id().equals(room_id)) {
-                guestRepository.remove(room);
+                roomRepository.remove(room);
                 flag[0] = true;
             }
         });
 
+        return flag[0];
+    }
+
+    public Boolean upCostRoom() {
+        final boolean[] flag = {false};
+        roomRepository.forEach(room -> {
+            room.getEquipments().forEach(equipment -> {
+                if (equipment.getName().equals("TV")) {
+                    room.setCostPerHour(room.getCostPerHour() * 2);
+                    flag[0] = true;
+                }
+            });
+        });
         return flag[0];
     }
 }
